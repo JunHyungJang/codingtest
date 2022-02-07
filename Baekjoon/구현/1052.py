@@ -2,43 +2,23 @@ num, min = map(int,input().split())
 
 bottle = dict()
 bottle[1] = num
+# not finished
 
+liter = 1
 total = 0
-t= list(bottle.keys())[0]
-k = bottle[t]
-while k> min:
-    t = list(bottle.keys())[0]
-    if bottle[t] % 2 ==0:
-        bottle[t*2] = k // 2
-        del bottle[t]
+while liter in bottle:
+    if sum(list(bottle.values()))< min:
+        break
+    if bottle[liter]>1:
+        bottle[liter*2] = bottle[liter] //2
+        bottle[liter] = bottle[liter] % 2
+        liter = liter*2
+        print(bottle)
     else:
-        bottle[t*2] = k//2 +1
-        total+= t
-        # print(total)
-        del bottle[t]
-    # print(bottle)
-    t = list(bottle.keys())[0]
-    k = bottle[t]
-    # print(bottle[t])
+        liters = [liter for liter in bottle if bottle[liter]>0]
+        print(liters)
+        total+= liters[1]- liters[0]
+        bottle[liters[0]]+=total
+        print(bottle)
 
-print(total)
-# total = 0
-# def merge(bottle, min,total):
-#     total_key = 0
-#     key = list(bottle.keys())[0]
-#     total_key+= bottle[key]
-#     if total_key == min:
-#         return total
-#     else:
-#         key = list(bottle.keys())[0]
-#         if bottle[key] % 2 == 0:
-#             bottle[key*2] = bottle[key]/2
-#             del bottle[key]
-#         else:
-#             k = bottle[key] // 2
-#             bottle[key*2] = k+1
-#             total+= key
-#             del bottle[key]   
-#     return merge(bottle,min,total)
-
-# print(merge(bottle,min,total))
+    
