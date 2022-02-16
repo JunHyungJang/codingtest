@@ -55,3 +55,24 @@ q.append(item) # right
 q.appendleft(item) # left
 q = deque()
 q.popleft()
+
+
+# 다익스트라
+def dijkstra(s):
+    heap = []
+    heapq.heappush(heap,(0,s))
+
+    while heap:
+        w, node = heapq.heappop(heap)
+
+        if dp[node] < w:
+            continue
+        
+        for next_node,i in graph[node]:
+            print(graph[node])
+            next_w = w+i
+            print(next_w, next_node)
+            if next_w < dp[next_node]:
+                dp[next_node] = next_w
+                heapq.heappush(heap,(next_w,next_node))
+    
