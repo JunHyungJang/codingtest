@@ -1,12 +1,14 @@
+# 시간초과 not yet
+
 import sys
 
-# input = sys.stdin.readline
+input = sys.stdin.readline
 
 
 lst = []
 p = []
 for i in range(9):
-    k = list(map(int,input()))
+    k = list(map(int,input().rstrip()))
     p.append(k)
     for j in range(9):
         if k[j] == 0:
@@ -23,7 +25,7 @@ def finding(t):
             for j in range(9):
                 print(p[i][j], end = "")
             print()
-        return
+        exit(0)
 
     x,y = lst[t]
     for num in range(1,10):
