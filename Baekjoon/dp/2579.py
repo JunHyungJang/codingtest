@@ -1,5 +1,6 @@
 import sys
 
+input = sys.stdin.readline
 n = int(input())
 
 s = [0] * (n+1)
@@ -10,6 +11,8 @@ for i in range(1,n+1):
     s[i] = t
 
 
+if n == 1:
+    print(s[1])
 dp[1] = s[1]
 dp[2] = max(s[1]+s[2], s[0]+s[2])
 
