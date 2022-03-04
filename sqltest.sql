@@ -28,7 +28,7 @@ insert into tables  (column1,column2,column3) values (value1,value2,value3);
 insert into tables values (value1,value2,value3)
 
 
-# update 
+# update df
 
 update tables set column  = value where a is null;
 
@@ -72,3 +72,12 @@ select co1, count(co1) as cnt from table group by co1 having cnt>=2
 # join
 
 select a.id, a.name from a left outer join b on a.id = b.id where b.id is null
+
+select a.id, a.name, a.kname from a innter join b on a.id = b.id
+# case
+
+case column
+when 조건1 then 값1
+when 조건2 then 값2
+else 값3
+end
