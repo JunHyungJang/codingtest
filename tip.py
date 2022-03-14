@@ -75,4 +75,5 @@ def dijkstra(s):
             if next_w < dp[next_node]:
                 dp[next_node] = next_w
                 heapq.heappush(heap,(next_w,next_node))
+                
     
