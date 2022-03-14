@@ -2,7 +2,7 @@
     "git.ignoreLimitWarning": true,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.tabCompletion": "on",
-    "editor.quickSuggestions": false,
-  	"editor.parameterHints.enabled": false
+    // "editor.quickSuggestions": false,
+  	// "editor.parameterHints.enabled": false
     
 }
