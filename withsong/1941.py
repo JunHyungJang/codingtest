@@ -6,7 +6,6 @@ ny = [0,0,1,-1]
 result_set = set()
 
 def backtrack(arr,index = 0, S = 0, Y = 0):
-    tmp = arr
     if Y> 3:
         return
     if index == 6:
@@ -40,5 +39,6 @@ for i in range(5):
     for j in range(5):
         if matrix[i][j] == 'S':
             backtrack([(i,j)],index = 0, S= 1)
-
+        elif matrix[i][j] == "Y":
+            backtrack([i,j], index = 0, Y = 1)
 print(len(result_set))
