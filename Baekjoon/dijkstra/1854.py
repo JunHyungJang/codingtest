@@ -17,7 +17,6 @@ from collections import deque
 #                 dist[next_node] = distance
 #                 heapq.heappush(heap,(distance,next_node))
 
-def finding(w,k):
 
 
 def track(k):

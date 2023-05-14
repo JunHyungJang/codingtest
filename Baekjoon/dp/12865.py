@@ -1,25 +1,22 @@
-import sys
+N,M = map(int,input().split())
 
-input = sys.stdin.readline
 
-n,m = map(int,input().split())
+lst = [[0,0]]
+for i in range(N):
+    a,b = map(int,input().split())
+    lst.append([a,b])
 
-# n = 개수, k = 용량
+dp = [[0 for i in range(M+1)] for i in range(N+1)]
+print(dp)
 
-k = [ [0]*(n+1) for i in range(m+1) ]
+for i in range(1,N+1):
+    for j in range(1,M+1):
+        a,b = lst[i]
+        print(a,b)
+        if j>=a:
+            dp[i][j] = max(dp[i-1][j-a] + b, dp[i-1][j])
+        else:
+            dp[i][j] = dp[i-1][j]
 
-lst = []
-
-for i in range(n):
-    w,v, = map(int,input().split())
-    lst.append([w,v])
-
-#용량에 대해
-for x in range(1,m+1):
-    #개수에 대해 
-    for j in range(1,n+1):
-        k[x][j] = k[x][j-1]
-        if lst[j-1][0] <= x:
-            k[x][j] = max(k[x][j], k[x-lst[j-1][0]][j-1]  + lst[j-1][1])
-
-print(k[m][n])
+# print(dp[N][M])
+print(dp)

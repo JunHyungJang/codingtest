@@ -1,19 +1,19 @@
-n,m = map(int,input().split())
+N,M = map(int,input().split())
+
+lst = [i for i in range(1,N+1)]
 
 
-s = []
-t = 1
-def dfs(n,m,t):
-    if len(s) == m:
-        for i in s:
+result = []
+def finding(start):
+    if len(result) == M:
+        for i in result:
             print(i, end = " ")
         print()
+        return
     
-    else:
-        for i in range(t,n+1):
-            s.append(i)
-            dfs(n,m,i+1)
-            s.pop()
+    for i in range(start,len(lst)):
+        result.append(lst[i])
+        finding(i+1)
+        result.remove(lst[i])
 
-dfs(n,m,t)
-
+finding(0)
