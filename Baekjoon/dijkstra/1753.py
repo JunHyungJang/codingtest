@@ -1,51 +1,36 @@
-from collections import deque
 import heapq
 import sys
+sys.setrecursionlimit(10**6)
 
 input = sys.stdin.readline
-sys.setrecursionlimit(10**6)
-INF = sys.maxsize
+V,E = map(int,input().split())
 
+K = int(input())
 
-def dijkstra(s):
-    heap = []
-    heapq.heappush(heap,(0,s))
+graph = {}
 
-    while heap:
-        w, node = heapq.heappop(heap)
-
-        if dp[node] < w:
-            continue
-        
-        for next_node,i in graph[node]:
-            # print(graph[node])
-            next_w = w+i
-            # print(next_w, next_node)
-            if next_w < dp[next_node]:
-                dp[next_node] = next_w
-                heapq.heappush(heap,(next_w,next_node))
-    
-            
-
-
-v,e = map(int,input().split())
-
-s = int(input())
-
-
-graph = [[]for i in range(v+1)]
-for i in range(e):
+for i in range(E):
     a,b,c = map(int,input().split())
-    graph[a].append((b,c))
-
-dp = [INF] * (v+1)
-dp[s] = 0
-
-dijkstra(s)
-
-for i in range(1,v+1):
-    if dp[i] == INF:
-        print("INF")
+    if a in graph:
+        graph[a].append([b,c])
     else:
-        print(dp[i])
+        graph[a] = [[b,c]]
+
+dist = [float('inf') for i in range(V+1)]
+dist[k] = 0
+
+
+def finding():
+    heap = []
+    heapq.heappush(heap,[0,s])
+    
+    while heap:
+        w,node = heapq.heappop(heap)
+
+        # if dist[]
+        for next_node, i in graph[node]:
+            next_w = w + i
+            if dist[next_node] > next_w:
+                dist[next_node] = next_w
+                heapq.heappush(heap,(next_w,next_node))
 
